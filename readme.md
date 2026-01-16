@@ -1,0 +1,10 @@
+# Frontend Mini Projects
+
+A self-imposed challenge to build small, creative frontend experiments.
+
+
+## Projects
+
+| # | Project | Inspiration |
+|---|--------|------|
+| 001 | Orange Studio Animation | https://orage.studio/ |
