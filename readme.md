@@ -8,3 +8,4 @@ A self-imposed challenge to build small, creative frontend experiments.
 | # | Project | Inspiration |
 |---|--------|------|
 | 001 | Orange Studio Animation | https://orage.studio/ |
+| 002 | Paolo vendramini Animation | https://www.paolovendramini.com/ |
