@@ -20,7 +20,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  scale: 1.5;
+  scale: 1.3;
 }
 
 .map{
@@ -29,7 +29,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60vw;
-  height: 35vh;
+  height: 22.5vh;
   overflow: clip;
   background-color: #fff;
 }
@@ -37,10 +37,32 @@ img {
 .content{
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4vw;
+  position: relative;
+  padding: 2vw;
+}
+
+.corner {
+  position: absolute;
+}
+
+.corner.top-left {
+  top: 2vw;
+  left: 2vw;
+}
+
+.corner.top-right {
+  top: 2vw;
+  right: 2vw;
+}
+
+.corner.bottom-left {
+  bottom: 2vw;
+  left: 2vw;
+}
+
+.corner.bottom-right {
+  bottom: 2vw;
+  right: 2vw;
 }
 
 .asset{

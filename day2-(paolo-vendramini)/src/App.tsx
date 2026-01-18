@@ -3,7 +3,7 @@ import { ReactLenis, useLenis } from 'lenis/react'
 import { useRef, useEffect } from 'react'
 
 function App() {
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([])
+  const imageRefs = useRef<(HTMLImageElement | HTMLVideoElement | null)[]>([])
   const contentRefs = useRef<(HTMLDivElement | null)[]>([])
   const assetRefs = useRef<(HTMLDivElement | null)[]>([])
   const mapRef = useRef<HTMLDivElement | null>(null)
@@ -60,7 +60,7 @@ function App() {
       })
     }, {
       root: map,
-      rootMargin: "-30px",
+      rootMargin: "-20px",
       threshold: [0, 0.25, 0.5, 0.75, 1]
     })
 
@@ -186,21 +186,17 @@ function App() {
           alt="logo" 
         />
       </div>
-      {/* <div className="page">
-        <img 
-          ref={(el) => { imageRefs.current[1] = el }}
-          src="/wine-1.jpg" 
-          alt="logo" 
-        />
-      </div> */}
-      <div 
-        className="page"
+      <div className="page"
         ref={(el) => { pageRefs.current[1] = el }}
       >
-        <img 
+        <video
           ref={(el) => { imageRefs.current[1] = el }}
-          src="/wine-1.jpg" 
-          alt="logo" 
+          src="/coffee.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
       <div 
@@ -209,7 +205,7 @@ function App() {
       >
         <img 
           ref={(el) => { imageRefs.current[2] = el }}
-          src="/book-1.jpg" 
+          src="/wine-1.jpg" 
           alt="logo" 
         />
       </div>
@@ -219,6 +215,16 @@ function App() {
       >
         <img 
           ref={(el) => { imageRefs.current[3] = el }}
+          src="/book-1.jpg" 
+          alt="logo" 
+        />
+      </div>
+      <div 
+        className="page"
+        ref={(el) => { pageRefs.current[4] = el }}
+      >
+        <img 
+          ref={(el) => { imageRefs.current[4] = el }}
           src="/women-1.jpg" 
           alt="logo" 
         />
@@ -229,33 +235,46 @@ function App() {
           className="content"
           ref={(el) => { contentRefs.current[0] = el }}
         >
-          <div className="title1">Beach Bliss</div>
-          <div className="title2">Watermelon Smile</div>
+          <div className="corner top-left">01</div>
+          <div className="corner top-right">04</div>
+          <div className="corner bottom-left title1">Beach Bliss</div>
+          <div className="corner bottom-right title2">Watermelon Smile</div>
         </div>
-        {/* <div className="content">
-          <div className="title1">Coffee Stop</div>
-          <div className="title2">Starbucks Corner</div>
-        </div> */}
         <div 
           className="content"
           ref={(el) => { contentRefs.current[1] = el }}
         >
-          <div className="title1">Wine Selection</div>
-          <div className="title2">Bottle Choice</div>
+          <div className="corner top-left">02</div>
+          <div className="corner top-right">04</div>
+          <div className="corner bottom-left title1">Coffee Stop</div>
+          <div className="corner bottom-right title2">Starbucks Corner</div>
         </div>
         <div 
           className="content"
           ref={(el) => { contentRefs.current[2] = el }}
         >
-          <div className="title1">Book Bazaar</div>
-          <div className="title2">Stacked Stories</div>
+          <div className="corner top-left">03</div>
+          <div className="corner top-right">04</div>
+          <div className="corner bottom-left title1">Wine Selection</div>
+          <div className="corner bottom-right title2">Bottle Choice</div>
         </div>
         <div 
           className="content"
           ref={(el) => { contentRefs.current[3] = el }}
         >
-          <div className="title1">Beach Bliss</div>
-          <div className="title2">Watermelon Smile</div>
+          <div className="corner top-left">04</div>
+          <div className="corner top-right">04</div>
+          <div className="corner bottom-left title1">Book Bazaar</div>
+          <div className="corner bottom-right title2">Stacked Stories</div>
+        </div>
+        <div 
+          className="content"
+          ref={(el) => { contentRefs.current[4] = el }}
+        >
+          <div className="corner top-left">01</div>
+          <div className="corner top-right">04</div>
+          <div className="corner bottom-left title1">Beach Bliss</div>
+          <div className="corner bottom-right title2">Watermelon Smile</div>
         </div>
 
         <div className="asset">
@@ -269,17 +288,23 @@ function App() {
             className="img"
             ref={(el) => { assetRefs.current[1] = el }}
           >
-            <img src="/wine-2.jpg" alt="logo" />
+            <img src="/coffee-2.jpg" alt="logo" />
           </div>
           <div 
             className="img"
             ref={(el) => { assetRefs.current[2] = el }}
           >
-            <img src="/book-2.jpg" alt="logo" />
+            <img src="/wine-2.jpg" alt="logo" />
           </div>
           <div 
             className="img"
             ref={(el) => { assetRefs.current[3] = el }}
+          >
+            <img src="/book-2.jpg" alt="logo" />
+          </div>
+          <div 
+            className="img"
+            ref={(el) => { assetRefs.current[4] = el }}
           >
             <img src="/women-2.jpg" alt="logo" />
           </div>
