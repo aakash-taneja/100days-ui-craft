@@ -34,7 +34,7 @@ export function App() {
       onUpdate: (self) => {
         const galleryWrapper = document.querySelector(".gallery-wrapper") as HTMLElement;
         const sideCols = document.querySelectorAll(".col:not(.main)") as NodeListOf<HTMLElement>;
-        const mainImg = document.querySelector(".img.main img") as HTMLElement;
+        const mainImg = document.querySelector(".img.main video") as HTMLElement;
 
         const scale = 1 + self.progress * 2.65;
         const yTranslate = self.progress * 300;
@@ -71,14 +71,11 @@ export function App() {
             </div>
           </div>
           <div className="col side-2">
-            <div className="img">
+            <div className="img" style={{ flex: 7 }}>
               <img src="/img4.jpg" alt="img4" />
             </div>
-            <div className="img">
+            <div className="img" style={{ flex: 3 }}>
               <img src="/img5.jpg" alt="img5" />
-            </div>
-            <div className="img">
-              <img src="/img6.jpg" alt="img6" />
             </div>
           </div>
           <div className="col main">
@@ -86,21 +83,18 @@ export function App() {
               <img src="/img7.jpg" alt="img7" />
             </div>
             <div className="img main">
-              <img src="/img8.jpg" alt="img8" />
+              <video src="/hero-vid.mp4" autoPlay muted loop playsInline />
             </div>
             <div className="img">
               <img src="/img9.jpg" alt="img9" />
             </div>
           </div>
           <div className="col side-3">
-            <div className="img">
+            <div className="img" style={{ flex: 3 }}>
               <img src="/img10.jpg" alt="img10" />
             </div>
-            <div className="img">
+            <div className="img" style={{ flex: 7 }}>
               <img src="/img11.jpg" alt="img11" />
-            </div>
-            <div className="img">
-              <img src="/img12.jpg" alt="img12" />
             </div>
           </div>
           <div className="col side-4">
@@ -119,33 +113,30 @@ export function App() {
       <div className="container">
         <section className="hero">
           <div className="hero-img">
-            <img src="/hero.jpg" alt="hero" />
+            <video src="/hero-vid.mp4" autoPlay muted loop playsInline />
           </div>
           <div className="header">
-            <h1>serene</h1>
-            <h1>drift</h1>
+            <h1>Heure</h1>
+            <h1>Bleue</h1>
           </div>
         </section>
         <section className="intro">
           <div className="tagline">
-            <p>Inspired visual for creators of calm and beauty</p>
+            <p>Creative images for all artisans</p>
           </div>
           <div className="divider"></div>
           <div className="intro-header">
-            <h1>elevating</h1>
-            <h1>serenity</h1>
+            <h1>du bean</h1>
+            <h1>et du bon</h1>
           </div>
         </section>
         <section className="ws"></section>
         <section className="outro">
-          <h1>crafted calm</h1>
-          <h1>and beauty</h1>
+          <h2>Straight to the heart,</h2>
+          <h2>the shortest way to</h2>
+          <h2>convince.</h2>
         </section>
-        <section className="footer">
-          <div className="footer-bg">
-            <img src="/footer.jpg" alt="footer" />
-          </div>
-        </section>
+
       </div>
     </ReactLenis>
   );

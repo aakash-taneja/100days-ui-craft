@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'PP Acma';
+  src: url('./fonts/PPAcma-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('./fonts/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,18 +24,27 @@ html,
 body {
   width: 100%;
   height: 100vh;
-  font-family: 'PP Neue Montreal', sans-serif;
+  font-family: 'PP Neue Montreal';
 }
 
-img {
+img,
+video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 h1 {
-  font-family: 'PP Acma', sans-serif;
-  font-size: 12vw;
+  font-family: 'PP Acma';
+  font-size: 16vw;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-family: 'PP Acma';
+  font-size: 8vw;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -35,7 +60,7 @@ p {
 .sticky {
   position: fixed;
   top: 0;
-  left: 9;
+  left: 0;
   width: 100vw;
   height: 100vh;
   padding: 0;
@@ -70,7 +95,8 @@ p {
   background-color: #fff;
 }
 
-.img.main img {
+.img.main img,
+.img.main video {
   position: relative;
   transform: scale(2);
   will-change: transform;
