@@ -67,7 +67,7 @@ p {
 .img {
   flex: 1;
   overflow: hidden;
-  background-color:#fff;
+  background-color: #fff;
 }
 
 .img.main img {
@@ -79,4 +79,75 @@ p {
 .container {
   height: 100%;
   width: 100%;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e1dedc;
+  padding: 2em;
+}
+
+.hero {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 4em 0;
+  background-color: #e1dedc;
+  color: #05364C;
+}
+
+.divider {
+  width: 1.5px;
+  height: 30%;
+  background-color: #05364C;
+}
+
+section.ws {
+  width: 100vw;
+  height: 600vh;
+  background-color: transparent;
+}
+
+.outro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #e1dedc;
+  color: #05364C;
+}
+
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
