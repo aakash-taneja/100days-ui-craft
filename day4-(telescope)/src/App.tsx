@@ -149,6 +149,14 @@ const App = () => {
         document.documentElement.style.overflow = "";
         document.body.style.height = "";
 
+        // Initialize ScrollSmoother for smooth scrolling throughout
+        ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 1.5,
+          effects: true,
+        });
+
         const scrollDistance = window.innerHeight * 4;
 
         // Init ScrollTrigger animations
@@ -255,50 +263,64 @@ const App = () => {
   }, []);
 
   return (
-    <div
-      id="parent_container"
-      className="flex justify-center items-center h-screen relative overflow-hidden bg-[#F4F3F0]"
-    >
-      <div></div>
-      {/* Image layers */}
-      {images.map((img) => (
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        {/* Hero/Telescope Section */}
         <div
-          key={img.id}
-          id={img.id}
-          className="absolute"
-          style={{ top: "50vh", left: "50vw" }}
+          id="parent_container"
+          className="flex justify-center items-center h-screen relative overflow-hidden bg-[#F4F3F0]"
         >
-          <Magnet padding={20} magnetStrength={img.strength}>
-            <img
-              src={img.src}
-              className="object-cover"
-              style={{ width: `${img.w}px`, height: `${img.h}px` }}
-            />
-          </Magnet>
-        </div>
-      ))}
+          <div></div>
+          {/* Image layers */}
+          {images.map((img) => (
+            <div
+              key={img.id}
+              id={img.id}
+              className="absolute"
+              style={{ top: "50vh", left: "50vw" }}
+            >
+              <Magnet padding={20} magnetStrength={img.strength}>
+                <img
+                  src={img.src}
+                  className="object-cover"
+                  style={{ width: `${img.w}px`, height: `${img.h}px` }}
+                />
+              </Magnet>
+            </div>
+          ))}
 
-      {/* Text content */}
-      <div
-        className="font-normal text-[52px] text-[#1A1915] absolute top-[40vh] text-center font-inter will-change-transform
-            "
-      >
-        <div id="text_content">Real recommendations</div>
-        <div
-          id="text_content_second"
-          className="flex items-center justify-center gap-x-1"
-        >
-          <span id="left_text">by real</span>
-          <div id="image_container" className=" bg-[#594E47] absolute z-20">
-            <img
-              className="w-full h-full object-cover"
-              src="/girl-png.webp"
-            />
+          {/* Text content */}
+          <div
+            className="font-normal text-[52px] text-[#1A1915] absolute top-[40vh] text-center font-inter will-change-transform"
+          >
+            <div id="text_content">Real recommendations</div>
+            <div
+              id="text_content_second"
+              className="flex items-center justify-center gap-x-1"
+            >
+              <span id="left_text">by real</span>
+              <div id="image_container" className=" bg-[#594E47] absolute z-20">
+                <img
+                  className="w-full h-full object-cover"
+                  src="/girl-png.webp"
+                />
+              </div>
+              <span id="right_text" className="pl-2 w-[200px] bg-amber-200">
+                people
+              </span>
+            </div>
           </div>
-          <span id="right_text" className="pl-2 w-[200px] bg-amber-200">
-            people
-          </span>
         </div>
+
+        {/* Next Section */}
+        <section
+          id="next_section"
+          className="min-h-screen bg-[#F4F3F0] flex justify-center items-center"
+        >
+          <h2 className="text-5xl md:text-7xl font-light text-white text-[#BDBCB8]">
+            Discover More
+          </h2>
+        </section>
       </div>
     </div>
   );
