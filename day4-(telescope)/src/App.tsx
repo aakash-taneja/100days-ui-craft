@@ -246,7 +246,7 @@ const App = () => {
     });
 
     // Animate each image in sequence
-    images.forEach((img, i) => {
+    images.forEach((img) => {
       tl.to(
         `#${img.id}`,
         {
