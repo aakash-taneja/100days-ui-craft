@@ -18,7 +18,97 @@ function App() {
     { text: "The only impossible journey is the one you never begin. Start where you are, use what you have, do what you can. Progress, not perfection, is what matters.", username: "@amy_chen", color: '#FFB347' },
   ];
 
+  useEffect(()=>{
+    const wrapper:any = wrapperRef.current;
+    if (!wrapper) return;
 
+    const slides = [...(wrapper).children];
+
+    const preventSelect = (e: any) => e.preventDefault();
+    wrapper.addEventListener('selectstart', preventSelect);
+    wrapper.style.userSelect = 'none';
+    wrapper.style.webkitUserSelect = 'none';
+    wrapper.style.touchAction = 'pan-y';
+
+
+    const slider = new Core(wrapper, {
+      infinite: false,
+      snap: false,
+      variableWidth: true,
+      lerpFactor: 0.02,
+      speedDecay: 0.97,
+      bounceLimit: 0,
+      setOffset: ({ itemWidth, totalWidth}) =>{
+        const gap = window.innerWidth * 0.02;
+        const lastSlideOffset = (slidesData.length -1) * (itemWidth + gap);
+        return totalWidth - lastSlideOffset;
+      },
+      onUpdate: (instance)=>{
+        const vwOffset = window.innerWidth * .1
+
+        slides.forEach((slide, i)=>{
+          const slideWidth = slide.offsetWidth;
+          const slideLeft = slide.offsetLeft + instance.current;
+          const bgColor = slidesData[i].color;
+
+          const isLast = i === slidesData.length -1;
+
+          if (slideLeft < 0 && !isLast){
+            const ratio = Math.min(1, Math.abs(slideLeft) / slideWidth);
+            slide.style.cssText = `
+              background-color: ${bgColor};
+              border: 2px solid rgba(0,0,0,0.6);
+              transform-origin: left 80%;
+              transform: translateX(${instance.current + Math.abs(slideLeft) + ratio * vwOffset}px) rotate(${-15 * ratio}deg) scale(${1 - ratio * 0.4});
+              position: relative;
+              z-index: ${i + 1};
+            `
+          } else {
+            slide.style.cssText = `
+              background-color: ${bgColor};
+              border: 2px solid rgba(0, 0, 0, 0.6);
+              transform: translateX(${instance.current}px);
+              z-index: ${i + 1};
+            `
+          }
+        })
+      }
+    })
+
+    let animId:any;
+    let wasDragging = false;
+    let momentum = 0;
+    const MOMENTUM_MULTIPLIER = 10;
+    const MOMENTUM_DECAY = 0.96;
+
+    function animate (){
+      slider.update();
+
+      if (slider.isDragging) {
+        wasDragging = true;
+        momentum = 0;
+      } else if (wasDragging) {
+        momentum = slider.speed * MOMENTUM_MULTIPLIER;
+        wasDragging = false;
+        
+      }
+      if ( Math.abs(momentum) > .5) {
+        slider.target += momentum;
+        momentum *= MOMENTUM_DECAY;
+        slider.target = Math.max(slider.maxScroll, Math.min(0,slider.target));
+      }
+
+      animId = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    return ()=>{
+      cancelAnimationFrame(animId);
+      wrapper.removeEventListener('selectstart', preventSelect);
+      slider.destroy();
+    }
+  }, [])
 
   return (
     <div className='w-full h-screen flex items-center gap-[2vw]'>
