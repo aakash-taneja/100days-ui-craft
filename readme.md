@@ -14,3 +14,4 @@ A self-imposed challenge to build small, creative frontend experiments.
 | 005 | Seventeen Contant Animation | https://www.seventeenagency.com/contact |
 | 006 | IronHill Hero Fade | https://ironhill.au/ |
 | 007 | Aladesign page reveal | https://aladesign.cz/ |
+| 008 | Slush wallet slider | https://slush.app/ |
