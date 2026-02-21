@@ -15,3 +15,4 @@ A self-imposed challenge to build small, creative frontend experiments.
 | 006 | IronHill Hero Fade | https://ironhill.au/ |
 | 007 | Aladesign page reveal | https://aladesign.cz/ |
 | 008 | Slush wallet slider | https://slush.app/ |
+| 009 | Text Effects |  |
